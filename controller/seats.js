@@ -1,8 +1,14 @@
 const seatModel = require("../model/seats.model")
 
 const getSeats = async (req, res) => {
-    let data = await seatModel.find()
-    res.send(data)
+    try {
+        let data = await seatModel.find()
+        res.send({he:"got data"})
+
+    } catch (error) {
+        res.send(error)
+    }
+
 }
 
 const postSeat = async (req, res) => {
@@ -20,7 +26,7 @@ const bookSeat = async (req, res) => {
     let seats = req.query.noOfSeats
     let seat = 1
 
-    if(seats <= 7){
+    if (seats <= 7) {
         try {
             for (let i = 0; i < seats; i++) {
                 let isItBook = await seatModel.find({ seatNo: seat })
@@ -38,7 +44,7 @@ const bookSeat = async (req, res) => {
         } catch (e) {
             res.send("error", e)
         }
-    }else{
+    } else {
         res.send("cant reserve more than 7 seats at a time")
     }
 }
