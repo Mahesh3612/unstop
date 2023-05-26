@@ -1,10 +1,10 @@
 const express = require("express")
-const {getSeats,postSeat, bookSeat, cancelSeat} = require("../controller/seats")
+const {getSeats ,bookSeat, cancelSeat} = require("../controller/seats")
 
 const seatRouter = express.Router()
 
 seatRouter.get("/",getSeats)
-seatRouter.post("/",postSeat)
+// seatRouter.post("/",postSeat)
 seatRouter.put("/booking",bookSeat)
 seatRouter.put("/cancel",cancelSeat)
 

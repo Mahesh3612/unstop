@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors")
+const dotenv = require('dotenv')
+dotenv.config()
 
 const connection = require("./db/config");
 const seatRouter = require("./routes/seats.route");
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 
 const app = express()
