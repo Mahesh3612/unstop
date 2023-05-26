@@ -6,6 +6,6 @@ const seatRouter = express.Router()
 seatRouter.get("/",getSeats)
 // seatRouter.post("/",postSeat)
 seatRouter.put("/booking",bookSeat)
-seatRouter.put("/cancel",cancelSeat)
+seatRouter.post("/cancel",cancelSeat)
 
 module.exports = seatRouter
